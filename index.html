@@ -1,25 +1,55 @@
-<script>
-    function startProcess() {
-        let name = prompt("Hey... what's your name?");
-
-        document.body.innerHTML = "<h2>🤔 Thinking...</h2>";
-
-        setTimeout(() => {
-            document.body.innerHTML = "<h2>🔎 Analyzing your name...</h2>";
-        }, 1000);
-
-        setTimeout(() => {
-            document.body.innerHTML = "<h2>⚠️ Suspicious activity detected...</h2>";
-        }, 3000);
-
-        setTimeout(() => {
-            document.body.innerHTML = `
-      <h2>❌ Wrong information.</h2>
-      <p>We have found out that you are...</p>
-      <h1 style="color: hotpink;">Dolores Umbridge</h1>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Dolores_Umbridge_%28Harry_Potter_character%29.png">
-      <p>✨ Please report to Hogwarts immediately.</p>
-    `;
-        }, 5000);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Identity Check</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      background: #fafafa;
     }
-</script>
+    img {
+      max-width: 300px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Loading...</h2>
+
+  <script>
+    function startProcess() {
+      let name = prompt("Hey... what's your name?");
+
+      // If they hit cancel, still run the prank
+      if (name === null) name = "Anonymous";
+
+      document.body.innerHTML = "<h2>🤔 Thinking...</h2>";
+
+      setTimeout(() => {
+        document.body.innerHTML = "<h2>🔎 Analyzing your name...</h2>";
+      }, 1000);
+
+      setTimeout(() => {
+        document.body.innerHTML = "<h2>⚠️ Suspicious activity detected...</h2>";
+      }, 3000);
+
+      setTimeout(() => {
+        document.body.innerHTML = `
+          <h2>❌ Wrong information.</h2>
+          <p>We have found out that you are...</p>
+          <h1 style="color: hotpink;">Dolores Umbridge</h1>
+          <img src="Umbridge.jpeg" alt="Busted">
+          <p>✨ Please report to Hogwarts immediately.</p>
+        `;
+      }, 5000);
+    }
+
+    // Auto-run when the page loads
+    window.addEventListener("load", startProcess);
+  </script>
+</body>
+</html>
