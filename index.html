@@ -1,0 +1,25 @@
+<script>
+    function startProcess() {
+        let name = prompt("Hey... what's your name?");
+
+        document.body.innerHTML = "<h2>🤔 Thinking...</h2>";
+
+        setTimeout(() => {
+            document.body.innerHTML = "<h2>🔎 Analyzing your name...</h2>";
+        }, 1000);
+
+        setTimeout(() => {
+            document.body.innerHTML = "<h2>⚠️ Suspicious activity detected...</h2>";
+        }, 3000);
+
+        setTimeout(() => {
+            document.body.innerHTML = `
+      <h2>❌ Wrong information.</h2>
+      <p>We have found out that you are...</p>
+      <h1 style="color: hotpink;">Dolores Umbridge</h1>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Dolores_Umbridge_%28Harry_Potter_character%29.png">
+      <p>✨ Please report to Hogwarts immediately.</p>
+    `;
+        }, 5000);
+    }
+</script>
